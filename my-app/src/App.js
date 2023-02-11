@@ -1,23 +1,26 @@
 
 import './App.css';
 
-import TextConvert from './components/TextConvert';
+import Navbar from './components/Navbar';
 
-function App() {
+import React, { useState } from 'react'
+
+
+export default function App() {
+  const [mode,setMode]=useState("light")
+  const [color,setColor]=useState("dark")
+
+  const onclickButton = ()=>{
+    if(mode==="dark"){
+      setMode("light")
+      setColor("dark")
+    }
+    else{
+      setMode('dark')
+      setColor("light")
+    }
+  }
   return (
-    <>
-      <nav class="w-100 navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">TextCase</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-      <TextConvert/>
-    </>
+    <Navbar mode={mode} onclickButton={onclickButton} color={color} />
   );
 }
-
-
-export default App;
