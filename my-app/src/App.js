@@ -3,7 +3,7 @@ import './App.css';
 
 import Navbar from './components/Navbar';
 
-import BodyWall from './components/BodyWall';
+import Home from './components/Home';
 
 import React, { useState } from 'react'
 
@@ -27,7 +27,7 @@ export default function App() {
   return (
     <>
     <Navbar mode={mode} onclickButton={onclickButton} color={color} />
-    <BodyWall/>
+    <Home mode={mode}/>
     </>
   );
 }
