@@ -1,8 +1,15 @@
+import {Cart3} from 'react-bootstrap-icons'
+
+import { Link } from 'react-router-dom'
+
+import React from 'react'
+
 const Navbar =(props)=>{
     const {mode,onclickButton,active}=props
     const onClickToggle=()=>{
         onclickButton();
     }
+    const bag= mode==="light"?"black":"white"
     return(
         <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
         <div className="container-fluid">
@@ -20,10 +27,10 @@ const Navbar =(props)=>{
                   Laddos
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#">Besan</a></li>
-                  <li><a className="dropdown-item" href="#">Rava Laddo</a></li>
+                  <li><Link to="/Laddos">Besan Laddo</Link></li>
+                  <li><Link to="/Laddos">Rava Laddo</Link></li>
                   <li><hr className="dropdown-divider"/></li>
-                  <li><a className="dropdown-item" href="#">Many more...</a></li>
+                  <Link to="/Laddos"><li>Many More..</li></Link>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -31,10 +38,10 @@ const Navbar =(props)=>{
                   Healthy
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#">Panjeeri Laddo</a></li>
-                  <li><a className="dropdown-item" href="#">Protien Laddo</a></li>
+                  <li><Link to="/Healthy">Panjeera Laddo</Link></li>
+                  <li><Link to="/Healthy">Protein Laddo</Link></li>
                   <li><hr className="dropdown-divider"/></li>
-                  <li><a className="dropdown-item" href="#">Many more...</a></li>
+                  <Link to="/Healthy"><li>Many More..</li></Link>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -52,6 +59,9 @@ const Navbar =(props)=>{
             <div className="form-check form-switch" onClick={onClickToggle}>
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
             <label className={`form-check-label text-${props.color}`} htmlFor="flexSwitchCheckDefault" >{mode==="light"?"Dark Mode":'Light Mode'}</label>
+            </div>
+            <div className={`p-3 mb-2 bg-${mode}`} style={{color: bag}}>
+            <Link to={"/Cart"}><Cart3/></Link>
             </div>
           </div>
         </div>
